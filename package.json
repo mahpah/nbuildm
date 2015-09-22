@@ -9,16 +9,19 @@
     "prebuild:babel": "mkdirp dist/js",
     "build:babel": "babel src/js/ --out-file dist/js/scripts.js --source-maps inline",
     "copy:assets": "ncp src/assets dist/assets",
-    "clean": "rimraf dist",
+    "clean": "rimraf ./dist",
     "prebuild": "npm run clean",
     "build": "parallelshell \"npm run build:jade\" \"npm run build:sass\" \"npm run build:babel\"",
-    "postbuild": "npm run copy:assets"
+    "postbuild": "npm run copy:assets",
+    "serve": "http-server dist/",
+    "live-reload": "live-reload dist/ --port 3000",
+    "serve:dev": "parallelshell \"npm run serve\" \"npm run live-reload\""
   },
   "author": "mahpahh",
   "license": "ISC",
   "devDependencies": {
     "babel": "^5.8.23",
-    "http-server": "^0.8.3",
+    "http-server": "^0.8.4",
     "jade": "^1.11.0",
     "live-reload": "^1.1.0",
     "mkdirp": "^0.5.1",
