@@ -1,0 +1,18 @@
+{
+  "name": "responsive-sidebar",
+  "version": "1.0.0",
+  "description": "Responsive sidebar template",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "mahpahh",
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "^0.8.3",
+    "jade": "^1.11.0",
+    "live-reload": "^1.1.0",
+    "node-sass": "^3.3.3",
+    "parallelshell": "^2.0.0"
+  }
+}
