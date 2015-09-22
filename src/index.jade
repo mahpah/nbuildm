@@ -7,7 +7,54 @@ html
     script(type="application/javascript", src="http://localhost:3000")
 
   body
-    
-    p This is paragraphs
-    p This is paragraphs
-    p This is paragraphs
+  
+    header.cd-main-header
+      a(href="#0").cd-logo
+        img(src="assets/img/logo.svg", alt="Logo")
+
+      .cd-search
+        form(id="", action="#0")
+          input(type="text", name="search", placeholder="Search")
+      //- end .cd-search
+
+      a(href="#0").cd-nav-trigger Menu
+        span
+
+      nav.cd-nav
+        ul.cd-top-nav
+          li
+            a(href="#0") Tour
+          li
+            a(href="#0") Support
+          li.has-child.account
+            a(href="") 
+              img(src="assets/img/account.png", alt="")
+              | Account
+
+            ul
+              li
+                a(href="") My account
+      //- end nav
+    //- end header
+
+    main.cd-main-content
+      nav.cd-side-nav
+        ul
+          li.cd-label Main
+          li.overview.has-child
+            a(href="") Overview
+            ul
+              li
+                a(href="") All data
+          li.active.has-child.notifications
+            a(href="") 
+              | Notifications
+              span.count 3
+            ul
+              li.a All notifications
+      //- end side-nav
+
+      .content-wrapper
+    //- end main
+
+

@@ -1,0 +1,22 @@
+%clearfix
+  &::after
+    content: ""
+    display: table
+    clear: both
+
+// break point preset
+$S:     480px;   
+$M:     768px;     
+$L:     1170px;     
+
+=mq($size)
+  @if $size == S 
+    @media only screen and (min-width: $S) 
+      @content
+  @else if $size == M 
+    @media only screen and (min-width: $M) 
+      @content
+  @else if $size == L 
+    @media only screen and (min-width: $L)
+      @content
+  

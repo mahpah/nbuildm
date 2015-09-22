@@ -12,9 +12,10 @@
     "clean": "rimraf ./dist",
     "prebuild": "npm run clean",
     "build": "parallelshell \"npm run build:jade\" \"npm run build:sass\" \"npm run build:babel\"",
+    "build:dev": "parallelshell \"npm run build:jade\" \"npm run build:sass\" \"npm run build:babel\"",
     "postbuild": "npm run copy:assets",
     "serve": "http-server dist/",
-    "live-reload": "live-reload dist/ --port 3000",
+    "live-reload": "live-reload dist/ --port=3000",
     "serve:dev": "parallelshell \"npm run serve\" \"npm run live-reload\""
   },
   "author": "mahpahh",
@@ -30,5 +31,8 @@
     "node-sass": "^3.3.3",
     "parallelshell": "^2.0.0",
     "rimraf": "^2.4.3"
+  },
+  "dependencies": {
+    "normalize.css": "^3.0.3"
   }
 }

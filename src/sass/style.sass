@@ -1,2 +1,135 @@
-p.test
-  color: red
+@import "../../node_modules/normalize.css/normalize"
+@import "mixins"
+
+$black: hsl(0, 0%, 20%)
+$header-height: 3em
+$header-height-m: 4em
+
+$sidebar-width-m: 110px
+$sidebar-width-l: 200px
+
+html
+  font-size: 62.5%
+
+body
+  font-size: 1.4rem
+
+// --- CONTENT --- //
+.cd-main-content
+  .content-wrapper
+    padding-top: $header-height
+    padding-left: 5%
+    padding-right: 5%
+  
+  // trick to check size
+  &::before
+    display: none
+    content: "small"
+
+  +mq(M)
+    .content-wrapper
+      padding-top: $header-height
+      margin-left: $sidebar-width-m
+
+    &::before
+      content: "medium"
+
+  +mq(L)
+    &::before
+      content: "large"
+
+// --- CONTENT --- //
+.content-wrapper
+  +mq(M)
+    margin-left: 110px
+
+// --- HEADER --- //
+.cd-main-header
+  position: absolute
+  background: $black
+  width: 100%
+  top: 0
+  left: 0
+  @extend %clearfix
+  height: $header-height
+
+  +mq(M)
+    height: $header-height-m
+    position: fixed
+
+.cd-logo
+  float: left
+  display: block
+  height: $header-height - 1em
+  padding: 0.5em
+
+  img
+    display: block
+    background: hsl(190, 50%, 30%)
+    height: 100%
+
+  +mq(M)
+    height: $header-height-m - 1em
+
+.cd-search
+  float: left
+
+// --- Menu trigger
+.cd-nav-trigger
+  float: right
+  position: relative
+  overflow: hidden;
+  white-space: nowrap;
+  color: transparent;
+  width: 3em
+
+  span, 
+  span::before,
+  span::after
+    content: ""
+    position: absolute
+    width: 100%
+    background-color: white
+    height: 0.5em
+    left: 0
+  
+  span
+    top: 50%
+    margin-top: -0.25em
+
+  span::before
+    
+
+  +mq(M)
+    display: none
+
+// --- TOP NAV ---
+.cd-nav
+  display: none
+
+  +mq(M)
+    display: block
+    float: right
+
+// --- SIDE-NAV ---
+.cd-side-nav
+  position: absolute
+  left: 0
+  top: 0
+  width: 100%
+  visibility: hidden
+  opacity: 0
+  transition: opacity 0.2s 0s, visibility 0s 0.2s
+  
+  &.nav-is-visible
+    opacity: 1
+    visibility: visible
+    transition: opacity 0.2s 0s visibility 0s 0s
+
+  @media only screen and(min-width: 768px)
+    position: relative
+    float: left
+    width: 110px
+    visibility: visible
+    opacity: 1
+
