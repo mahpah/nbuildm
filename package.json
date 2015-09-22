@@ -4,7 +4,8 @@
   "description": "Responsive sidebar template",
   "main": "index.html",
   "scripts": {
-    "build:jade": "jade src -o dist"
+    "build:jade": "jade src -o dist",
+    "build:sass": "node-sass src/sass -o dist/css"
   },
   "author": "mahpahh",
   "license": "ISC",
