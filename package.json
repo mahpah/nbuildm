@@ -4,7 +4,7 @@
   "description": "Responsive sidebar template",
   "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:jade": "jade src -o dist"
   },
   "author": "mahpahh",
   "license": "ISC",
