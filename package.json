@@ -8,9 +8,10 @@
     "build:sass": "node-sass src/sass -o dist/css",
     "prebuild:babel": "mkdirp dist/js",
     "build:babel": "babel src/js/ --out-file dist/js/scripts.js --source-maps inline",
+    "copy:assets": "ncp src/assets dist/assets",
     "clean": "rimraf dist",
     "prebuild": "npm run clean",
-    "build": "parallelshell \"npm run build:jade\" \"npm run build:sass\" \"npm run build:babel\""
+    "build": "parallelshell \"npm run build:jade\" \"npm run build:sass\" \"npm run build:babel\" \"npm run copy:assets\""
   },
   "author": "mahpahh",
   "license": "ISC",
@@ -20,6 +21,7 @@
     "jade": "^1.11.0",
     "live-reload": "^1.1.0",
     "mkdirp": "^0.5.1",
+    "ncp": "^2.0.0",
     "node-sass": "^3.3.3",
     "parallelshell": "^2.0.0",
     "rimraf": "^2.4.3"
