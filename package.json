@@ -11,7 +11,8 @@
     "copy:assets": "ncp src/assets dist/assets",
     "clean": "rimraf dist",
     "prebuild": "npm run clean",
-    "build": "parallelshell \"npm run build:jade\" \"npm run build:sass\" \"npm run build:babel\" \"npm run copy:assets\""
+    "build": "parallelshell \"npm run build:jade\" \"npm run build:sass\" \"npm run build:babel\"",
+    "postbuild": "npm run copy:assets"
   },
   "author": "mahpahh",
   "license": "ISC",
