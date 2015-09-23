@@ -3,8 +3,6 @@ doctype html
 html
   head
     link(rel="stylesheet", href="css/style.css")
-    script(type="application/javascript", src="js/scripts.js")
-    script(type="application/javascript", src="http://localhost:3000")
 
   body
   
@@ -46,15 +44,35 @@ html
             ul
               li
                 a(href="") All data
+              li
+                a(href="") Realtime
+              li
+                a(href="") Trending
           li.active.has-child.notifications
             a(href="") 
               | Notifications
               span.count 3
             ul
-              li.a All notifications
+              li
+                a All notifications
+              li
+                a Messages
+          li.has-child
+            a(href="") 
+              | Bookmarks
+            ul
+              li
+                a All
+              li
+                a Comments
+              li
+                a Other
       //- end side-nav
 
       .content-wrapper
     //- end main
 
+    script(type="application/javascript", src="js/scripts.js")
+    script(type="application/javascript", src="http://localhost:3000")
+  //- end body 
 

@@ -24,6 +24,10 @@ class DomUtils {
     }
   }
 
+  containsClass(className, elm) {
+    return elm.classList.has(className);
+  }
+
 }
 
 export default new DomUtils();
