@@ -16,13 +16,16 @@
     "postbuild": "npm run copy:assets",
     "serve": "http-server dist/",
     "live-reload": "live-reload dist/ --port=3000",
-    "serve:dev": "parallelshell \"npm run serve\" \"npm run live-reload\""
+    "serve:dev": "parallelshell \"npm run serve\" \"npm run live-reload\"",
+    "commit": "git-cz"
   },
   "author": "mahpahh",
   "license": "ISC",
   "devDependencies": {
     "babelify": "^6.3.0",
     "browserify": "^11.1.0",
+    "commitizen": "^1.0.4",
+    "cz-conventional-changelog": "^1.1.0",
     "http-server": "^0.8.4",
     "jade": "^1.11.0",
     "live-reload": "^1.1.0",
@@ -34,5 +37,8 @@
   },
   "dependencies": {
     "normalize.css": "^3.0.3"
+  },
+  "czConfig": {
+    "path": "node_modules/cz-conventional-changelog/"
   }
 }
