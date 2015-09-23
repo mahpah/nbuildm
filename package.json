@@ -12,8 +12,8 @@
     "clean": "rimraf ./dist",
     "prebuild": "npm run clean",
     "build": "parallelshell \"npm run build:jade\" \"npm run build:sass\" \"npm run build:babel\"",
-    "build:dev": "parallelshell \"npm run build:jade\" \"npm run build:sass\" \"npm run build:babel\"",
     "postbuild": "npm run copy:assets",
+    "build:dev": "parallelshell \"npm run build:jade\" \"npm run build:sass\" \"npm run build:babel\"",
     "serve": "http-server dist/",
     "live-reload": "live-reload dist/ --port=3000",
     "serve:dev": "parallelshell \"npm run serve\" \"npm run live-reload\"",
@@ -36,6 +36,7 @@
     "rimraf": "^2.4.3"
   },
   "dependencies": {
+    "font-awesome": "^4.4.0",
     "normalize.css": "^3.0.3"
   },
   "czConfig": {

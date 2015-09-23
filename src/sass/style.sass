@@ -1,7 +1,10 @@
 @import "../../node_modules/normalize.css/normalize"
+$fa-font-path:        "../assets/fonts" !default;
+@import "../../node_modules/font-awesome/scss/font-awesome"
 @import "mixins"
 
 $black: hsl(0, 0%, 20%)
+$white: hsl(0, 0%, 100%)
 $header-height: 3em
 $header-height-m: 4em
 
@@ -52,6 +55,8 @@ body
   left: 0
   @extend %clearfix
   height: $header-height
+  z-index: 2
+  box-shadow: 0 2px 10px 0px hsla(0, 0%, 0%, 0.3)
 
   +mq(M)
     height: $header-height-m
@@ -81,7 +86,9 @@ body
   overflow: hidden;
   white-space: nowrap;
   color: transparent;
-  width: 3em
+  width: 2em
+  height: 2em
+  margin-right: 1rem
 
   span, 
   span::before,
@@ -90,7 +97,7 @@ body
     position: absolute
     width: 100%
     background-color: white
-    height: 0.5em
+    height: 0.25em
     left: 0
   
   span
@@ -98,7 +105,10 @@ body
     margin-top: -0.25em
 
   span::before
-    
+    top: -0.5em
+
+  span::after
+    top: 0.5em
 
   +mq(M)
     display: none
@@ -120,11 +130,46 @@ body
   visibility: hidden
   opacity: 0
   transition: opacity 0.2s 0s, visibility 0s 0.2s
-  
-  &.nav-is-visible
+  padding-top: $header-height
+  background: $black
+
+  &.show-nav
     opacity: 1
     visibility: visible
     transition: opacity 0.2s 0s visibility 0s 0s
+  
+  .cd-label
+    text-transform: uppercase
+    font-weight: bold
+    color: lighten($black, 15%)
+    padding: 1em 2em
+
+  >ul
+    margin: 0
+    padding: 0
+
+    >li
+      list-style-type: none
+
+      >a
+        display: block
+        padding: 1em 2em
+        border-bottom: 1px solid lighten($black, 3%)
+        color: darken($white, 20%)
+        text-decoration: none
+
+  .has-child
+    ul
+      margin: 0
+      padding: 0
+
+      >li
+        list-style: none
+
+        >a
+          display: block
+          text-decoration: none
+          color: $white
 
   @media only screen and(min-width: 768px)
     position: relative
