@@ -1,1 +1,2 @@
-This aims to demonstrate how to use npm as a build tool.
+Demonstrate how to use npm as a build tool.
+This can be used as a boilerplate
