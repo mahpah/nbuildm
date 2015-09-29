@@ -9,8 +9,8 @@
     "build:sass": "node-sass src/sass -o dist/css",
     "watch:sass": "node-sass src/sass -o dist/css -w",
     "prebuild:babel": "mkdirp dist/js",
-    "build:babel": "babel src/js/ --out-file dist/js/scripts.js --source-maps inline",
-    "watch:babel": "babel src/js/ --out-file dist/js/scripts.js --source-maps inline -w",
+    "build:babel": "browserify src/js/index.js --outfile dist/js/scripts.js",
+    "watch:babel": "watchify src/js/index.js --outfile dist/js/scripts.js -v",
     "copy:assets": "ncp src/assets dist/assets",
     "clean": "rimraf ./dist",
     "prebuild": "npm run clean",
@@ -24,10 +24,17 @@
     "watch": "parallelshell \"npm run watch:jade\" \"npm run watch:sass\" \"npm run watch:babel\"",
     "dev": "parallelshell \"npm run serve:dev\" \"npm run watch\""
   },
+  "browserify": {
+    "transform": [
+      "babelify"
+    ]
+  },
   "author": "mahpahh",
   "license": "ISC",
   "devDependencies": {
     "babel": "^5.8.23",
+    "babelify": "^6.3.0",
+    "browserify": "^11.2.0",
     "cz-conventional-changelog": "^1.1.2",
     "http-server": "^0.8.4",
     "jade": "^1.11.0",
@@ -36,9 +43,13 @@
     "ncp": "^2.0.0",
     "node-sass": "^3.3.3",
     "parallelshell": "^2.0.0",
-    "rimraf": "^2.4.3"
+    "rimraf": "^2.4.3",
+    "watchify": "^3.4.0"
   },
   "czConfig": {
     "path": "node_modules/cz-conventional-changelog/"
+  },
+  "dependencies": {
+    "velocity-animate": "^1.2.3"
   }
 }
