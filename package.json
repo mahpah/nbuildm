@@ -6,8 +6,8 @@
   "scripts": {
     "build:jade": "jade src -o dist",
     "watch:jade": "jade src -o dist -w",
-    "build:sass": "node-sass src/sass -o dist/css",
-    "watch:sass": "node-sass src/sass -o dist/css -w",
+    "build:sass": "node-sass src/sass -o dist/css --include-path=node_modules/bourbon/app/assets/stylesheets",
+    "watch:sass": "node-sass src/sass -o dist/css --include-path=node_modules/bourbon/app/assets/stylesheets -w",
     "prebuild:babel": "mkdirp dist/js",
     "build:babel": "browserify src/js/index.js --outfile dist/js/scripts.js",
     "watch:babel": "watchify src/js/index.js --outfile dist/js/scripts.js -v",
@@ -50,6 +50,7 @@
     "path": "node_modules/cz-conventional-changelog/"
   },
   "dependencies": {
+    "bourbon": "^4.2.5",
     "velocity-animate": "^1.2.3"
   }
 }
