@@ -1,12 +1,18 @@
 =mq($size)
-  @if $size = S
+  @if $size == S
     @media only screen and (min-width: $size-small)
       @content
-  @else if $size = M
+  @else if $size == M
     @media only screen and (min-width: $size-medium)
       @content
-  @else if $size = L
+  @else if $size == L
     @media only screen and (min-width: $size-large)
       @content
   @else
     @content
+
+=clearfix()
+  &::after
+    content: ""
+    display: table
+    clear: both
