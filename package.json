@@ -4,25 +4,27 @@
   "description": "Responsive sidebar template",
   "main": "index.html",
   "scripts": {
+    "clean": "rimraf ./dist",
+    
     "build:jade": "jade src -o dist",
-    "watch:jade": "jade src -o dist -w",
     "build:sass": "node-sass src/sass -o dist/css --include-path=node_modules/bourbon/app/assets/stylesheets",
-    "watch:sass": "node-sass src/sass -o dist/css --include-path=node_modules/bourbon/app/assets/stylesheets -w",
     "prebuild:babel": "mkdirp dist/js",
     "build:babel": "browserify src/js/index.js --outfile dist/js/scripts.js",
+    
+    "watch:jade": "jade src -o dist -w",
     "watch:babel": "watchify src/js/index.js --outfile dist/js/scripts.js -v",
+    "watch:sass": "node-sass src/sass -o dist/css --include-path=node_modules/bourbon/app/assets/stylesheets -w",
+
     "copy:assets": "ncp src/assets dist/assets",
-    "clean": "rimraf ./dist",
+    
     "prebuild": "npm run clean",
-    "build": "parallelshell \"npm run build:jade\" \"npm run build:sass\" \"npm run build:babel\"",
-    "build:dev": "parallelshell \"npm run build:jade\" \"npm run build:sass\" \"npm run build:babel\"",
+    "build": "npm-run-all -p build:*",
     "postbuild": "npm run copy:assets",
-    "serve": "http-server dist/",
-    "live-reload": "live-reload dist/ --port=3000",
-    "serve:dev": "parallelshell \"npm run serve\" \"npm run live-reload\"",
+
+    "serve:dev": "live-server --open=dist/",
     "prewatch": "mkdirp dist/js",
-    "watch": "parallelshell \"npm run watch:jade\" \"npm run watch:sass\" \"npm run watch:babel\"",
-    "dev": "parallelshell \"npm run serve:dev\" \"npm run watch\""
+    "watch": "npm-run-all -p watch:*",
+    "dev": "npm-run-all build -p serve:dev watch"
   },
   "browserify": {
     "transform": [
@@ -36,13 +38,12 @@
     "babelify": "^6.3.0",
     "browserify": "^11.2.0",
     "cz-conventional-changelog": "^1.1.2",
-    "http-server": "^0.8.4",
     "jade": "^1.11.0",
-    "live-reload": "^1.1.0",
+    "live-server": "^0.8.2",
     "mkdirp": "^0.5.1",
     "ncp": "^2.0.0",
     "node-sass": "^3.3.3",
-    "parallelshell": "^2.0.0",
+    "npm-run-all": "^1.2.12",
     "rimraf": "^2.4.3",
     "watchify": "^3.4.0"
   },
