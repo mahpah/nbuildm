@@ -1,4 +1,14 @@
 <a name="1.0.3"></a>
+## [1.0.3](//compare/1.0.3...v1.0.3) (2015-10-28)
+
+
+### Features
+
+* **build:** replace parallel by npm-run-all, http-server by live-server 9b24508
+
+
+
+<a name="1.0.3"></a>
 ## [1.0.3](//compare/1.0.3...v1.0.3) (2015-10-01)
 
 
