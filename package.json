@@ -5,22 +5,17 @@
   "main": "index.html",
   "scripts": {
     "clean": "rimraf ./dist",
-    
     "build:jade": "jade src -o dist",
     "build:sass": "node-sass src/sass -o dist/css --include-path=node_modules/bourbon/app/assets/stylesheets",
     "prebuild:babel": "mkdirp dist/js",
     "build:babel": "browserify src/js/index.js --outfile dist/js/scripts.js",
-    
-    "watch:jade": "jade src -o dist -w",
+    "watch:jade": "nodemon -e jade src -x \"npm run build:jade\"",
     "watch:babel": "watchify src/js/index.js --outfile dist/js/scripts.js -v",
-    "watch:sass": "node-sass src/sass -o dist/css --include-path=node_modules/bourbon/app/assets/stylesheets -w",
-
+    "watch:sass": "nodemon -e sass,scss src/sass -x \"npm run build:sass\"",
     "copy:assets": "ncp src/assets dist/assets",
-    
     "prebuild": "npm run clean",
     "build": "npm-run-all -p build:*",
     "postbuild": "npm run copy:assets",
-
     "serve:dev": "live-server --open=dist/",
     "prewatch": "mkdirp dist/js",
     "watch": "npm-run-all -p watch:*",
@@ -43,6 +38,7 @@
     "mkdirp": "^0.5.1",
     "ncp": "^2.0.0",
     "node-sass": "^3.3.3",
+    "nodemon": "^1.8.1",
     "npm-run-all": "^1.2.12",
     "rimraf": "^2.4.3",
     "watchify": "^3.4.0"
